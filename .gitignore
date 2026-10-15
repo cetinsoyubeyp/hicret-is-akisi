@@ -1,0 +1,25 @@
+# Nuxt build and cache outputs
+.output
+.data
+.nuxt
+dist
+
+# Node dependencies
+node_modules
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Environment and secrets (ASLA GITHUB / VERCEL REPO'YA YÜKLENMEZ)
+.env
+.env.*
+!.env.example
+
+# OS files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Logs
+*.log
