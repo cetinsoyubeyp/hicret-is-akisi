@@ -5,7 +5,7 @@
     @click.self="$emit('close')"
   >
     <div 
-      class="bg-white rounded-2xl border border-slate-200/80 shadow-2xl ring-1 ring-slate-950/5 max-w-md w-full overflow-hidden animate-in fade-in zoom-in-95 duration-150"
+      class="bg-white rounded-2xl border border-slate-200/80 shadow-2xl ring-1 ring-slate-950/5 max-w-lg w-full overflow-hidden animate-in fade-in zoom-in-95 duration-150"
       @keydown.esc="$emit('close')"
     >
       <!-- Başlık Çubuğu -->
@@ -85,35 +85,40 @@
         </div>
       </div>
 
-      <!-- Alt Butonlar -->
-      <div class="px-6 py-4 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-2.5 bg-slate-50/40 shrink-0">
-        <button 
-          type="button"
-          @click="handleCopyMessage"
-          class="w-full sm:w-auto px-3.5 py-2 rounded-xl bg-white hover:bg-slate-100 border border-slate-200 text-slate-700 text-xs font-medium transition-all shadow-xs flex items-center justify-center gap-1.5 cursor-pointer"
-        >
-          <span v-if="copied">✔ Kopyalandı</span>
-          <span v-else>📋 Metni Kopyala</span>
-        </button>
+      <!-- Alt Butonlar (Hepsi Tam Olarak Aynı Boyutta ve Hizalı) -->
+      <div class="px-6 py-4 border-t border-slate-100 bg-slate-50/40 shrink-0">
+        <div class="grid grid-cols-3 gap-2.5">
+          <!-- 1. Metni Kopyala -->
+          <button 
+            type="button"
+            @click="handleCopyMessage"
+            class="h-11 w-full px-2 sm:px-3 rounded-xl bg-white hover:bg-slate-100 border border-slate-200 text-slate-700 text-xs sm:text-sm font-medium transition-all shadow-xs flex items-center justify-center gap-1.5 cursor-pointer whitespace-nowrap"
+            title="Mesaj metnini panoya kopyalar"
+          >
+            <span v-if="copied" class="text-emerald-600 font-semibold truncate">✔ Kopyalandı</span>
+            <span v-else class="truncate">📋 Metni Kopyala</span>
+          </button>
 
-        <div class="flex items-center gap-2 w-full sm:w-auto justify-end">
+          <!-- 2. Kapat -->
           <button 
             type="button" 
             @click="$emit('close')"
-            class="px-4 py-2 rounded-xl bg-white hover:bg-slate-100 border border-slate-200 text-slate-600 text-xs font-medium transition-all cursor-pointer"
+            class="h-11 w-full px-2 sm:px-3 rounded-xl bg-white hover:bg-slate-100 border border-slate-200 text-slate-700 text-xs sm:text-sm font-medium transition-all shadow-xs flex items-center justify-center cursor-pointer whitespace-nowrap"
           >
             Kapat
           </button>
 
+          <!-- 3. Gruba İlet -->
           <button 
             type="button" 
             @click="handleSend"
-            class="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 active:scale-[0.99] text-white text-xs sm:text-sm font-semibold shadow-sm hover:shadow transition-all cursor-pointer"
+            class="h-11 w-full px-2 sm:px-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 active:scale-[0.99] text-white text-xs sm:text-sm font-semibold shadow-sm hover:shadow transition-all flex items-center justify-center gap-1.5 sm:gap-2 cursor-pointer whitespace-nowrap"
+            title="WhatsApp servisi grubuna gönderir"
           >
             <svg class="w-4 h-4 fill-current shrink-0" viewBox="0 0 24 24">
               <path d="M12.031 2c-5.508 0-9.986 4.477-9.986 9.984 0 1.761.458 3.479 1.332 5.002L2 22l5.161-1.353a9.92 9.92 0 004.87 1.258h.004c5.507 0 9.984-4.477 9.984-9.984 0-2.666-1.038-5.173-2.925-7.059A9.917 9.917 0 0012.031 2zm0 18.252h-.003a8.23 8.23 0 01-4.197-1.149l-.301-.179-3.118.818.832-3.039-.196-.312a8.243 8.243 0 01-1.267-4.407c0-4.552 3.704-8.256 8.256-8.256 2.206 0 4.279.86 5.839 2.421a8.204 8.204 0 012.417 5.836c0 4.553-3.704 8.256-8.26 8.256zm4.526-6.177c-.248-.124-1.468-.724-1.696-.807-.228-.083-.394-.124-.56.124-.166.248-.642.807-.787.973-.145.166-.29.187-.538.062-.249-.125-1.049-.387-1.999-1.233-.739-.659-1.238-1.474-1.383-1.722-.145-.248-.015-.382.109-.505.112-.111.248-.29.373-.435.124-.145.166-.248.249-.414.083-.166.041-.311-.021-.435-.062-.124-.56-1.349-.767-1.847-.202-.486-.407-.42-.56-.428l-.477-.008c-.166 0-.435.062-.663.311-.228.249-.871.851-.871 2.074 0 1.224.892 2.406 1.016 2.572.124.166 1.756 2.681 4.254 3.759.594.257 1.059.41 1.42.525.597.19 1.14.163 1.569.099.479-.072 1.468-.6 1.675-1.18.207-.58.207-1.077.145-1.18-.062-.104-.228-.166-.477-.29z" />
             </svg>
-            <span>WhatsApp Grubuna İlet</span>
+            <span class="truncate">Gruba İlet</span>
           </button>
         </div>
       </div>

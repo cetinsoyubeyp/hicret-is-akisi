@@ -4,6 +4,15 @@ Bu dosya, teknik servis iş akışı ve arıza takip yönetim sistemi için plan
 
 ---
 
+## 📍 Aşama 2.10: WhatsApp İletim Modalı Buton Boyutlarının Eşitlenmesi (TAMAMLANDI)
+- [x] Kullanıcının talebi ve ilettiği ekran görüntüsü doğrultusunda:
+  - [x] `components/WhatsAppDispatchModal.vue` altındaki üç buton ("Metni Kopyala", "Kapat", "Gruba İlet") `grid grid-cols-3 gap-2.5` mimarisine alındı.
+  - [x] Tüm butonlar eşit yükseklik (`h-11`), eşit genişlik (%33.33) ve aynı köşe yuvarlaklığı (`rounded-xl`) ile milimetrik eşitlendi.
+  - [x] Buton metinlerinin alt satıra kırılması (`line-wrap`) engellendi (`whitespace-nowrap`), modal genişliği `max-w-lg` yapılarak ferah bir görünüm sağlandı.
+- [x] `npm run build` ile 0 hata derleme doğrulaması yapıldı.
+
+---
+
 ## 📍 Aşama 2.9: Mockup Verilerin Temizlenmesi, Supabase Kurulumu ve Vercel Dağıtım Hazırlığı (TAMAMLANDI)
 - [x] Tüm sahte (mockup) test verileri kod tabanından tamamen kaldırıldı (`composables/useFaultRecords.ts`):
   - [x] `INITIAL_ARCHIVE_RECORDS` silindi; `records.value` varsayılan olarak boş liste `[]` yapıldı.

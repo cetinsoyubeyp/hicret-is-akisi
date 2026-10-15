@@ -4,6 +4,21 @@ Bu dosya, teknik servis arıza takip ve iş akışı yönetim sistemi projesinde
 
 ---
 
+## 📅 [2026-10-15] — WhatsApp İletim Modalı Buton Boyut Eşitlemesi (Aşama 2.10)
+
+### 1. Amaç ve İhtiyaç
+- Kullanıcının ilettiği görsel geri bildirim doğrultusunda, arıza kaydı sonrası açılan WhatsApp iletim penceresindeki butonların farklı yükseklik, genişlik ve çoklu satıra kırılma sorunlarının giderilerek kusursuz, dengeli ve aynı boyutta bir tasarıma kavuşturulması.
+
+### 2. Uygulanan Geliştirmeler
+- [x] `components/WhatsAppDispatchModal.vue`:
+  - Alt aksiyon alanı `grid grid-cols-3 gap-2.5` yapısına dönüştürüldü.
+  - "Metni Kopyala", "Kapat" ve "Gruba İlet" butonlarının her birine sabit `h-11` (44px) yükseklik ve %33.33 eşit genişlik verildi.
+  - `whitespace-nowrap` ile metinlerin alt alta kırılarak buton boyunu bozması engellendi.
+  - Modal maksimum genişliği `max-w-lg` (512px) yapılarak ferah ve simetrik bir düzen sağlandı.
+- [x] `npm run build` ile 0 hata derleme doğrulaması yapıldı.
+
+---
+
 ## 📅 [2026-10-15] — Mockup Verilerin Temizlenmesi, Supabase ve Vercel Hazırlığı (Aşama 2.9)
 
 ### 1. Amaç ve İhtiyaç
